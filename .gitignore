@@ -1,4 +1,4 @@
-
+#my gitignore file
 node_modules/
 .idea/
 .DS_Store
