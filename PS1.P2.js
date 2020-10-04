@@ -1,4 +1,11 @@
 /*
+    Spencer Vilicic
+    CS412
+    10/4/2020
+    Problem Set 1
+ */
+
+/*
  Write a function that takes as its input a formatted string, such as these:
     ‘4+2’
     ‘5*7’
@@ -23,9 +30,7 @@
 */
 
 
-const evaluate = inputString => {
-    let [left, operator, right] = inputString;
-
+const evaluate = ([left, operator, right]) => {
     switch (operator) {
         case '+':
             return (left,right) => left+right;
@@ -49,25 +54,15 @@ const evaluate = inputString => {
 }
 
 // Testing cases
-const expression1 = '4+2';
-let operator1 = evaluate(expression1)
-console.log(`${expression1} = ${operator1(4,2)}`)
+console.log(`4+2 = ${evaluate('4+2')(4,2)}`)
 
-const expression2 = '5*7';
-let operator2 = evaluate(expression2)
-console.log(`${expression2} = ${operator2(5,7)}`)
+console.log(`5*7 = ${evaluate('5*7')(5,7)}`)
 
-const expression3 = '6-1';
-let operator3 = evaluate(expression3)
-console.log(`${expression3} = ${operator3(6,1)}`)
+console.log(`6-1 = ${evaluate('6-1')(6,1)}`)
 
-const expression4 = '9/2';
-let operator4 = evaluate(expression4)
-console.log(`${expression4} = ${operator4(9,2)}`)
+console.log(`9/2 = ${evaluate('9/2')(9,2)}`)
 
-const expression5 = '2^8';
-let operator5 = evaluate(expression5)
-console.log(`${expression5} = ${operator5(2,8)}`)
+console.log(`2^8 = ${evaluate('2^8')(2,8)}`)
 
 //Export for mocha/chai tests
 module.exports = {evaluate}

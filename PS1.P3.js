@@ -1,4 +1,11 @@
 /*
+    Spencer Vilicic
+    CS412
+    10/4/2020
+    Problem Set 1
+ */
+
+/*
  Write a function that accepts two input parameters: a string, and a decorator function. The
  function should execute the passed decorator function on the passed string and return the
  result.
@@ -13,23 +20,40 @@
     contains the original string, the modified string, the total number of As in the modified string,
     and the overall length of the modified string:
  {
-     originalString: xxx,
-         modifiedString: xxx,
-     numberReplaced: xxx,
-     length:		 	 xxx,
+        originalString: xxx,
+        modifiedString: xxx,
+        numberReplaced: xxx,
+        length:		 	xxx,
  }
 
- Print the data from the returned object on the console (console.table would e good for this).
+ Print the data from the returned object on the console (console.table would be good for this).
  For testing in Chai, you can use the same values for the string and decorators.
 */
 
-//first function
+//here's my fancy decorator function
 const decoFunction = (myString, myDecorator) => myDecorator(myString);
 
-//first expression
-let firstEx = decoFunction(
-    myString = `supercalifragilisticexpialidocious`,
-    myDecorator = myString => myString.split('c')
-);
 
-console.log(`first expression: ${firstEx}`);
+let firstExpression = decoFunction(
+    `supercalifragilisticexpialidocious`,
+    (myString) => myString.split('c').join(' c').split(' ')
+);
+//testing first expression output
+console.log(`first expression: ${firstExpression}`);
+
+
+let secondExpression = decoFunction(
+    `supercalifragilisticexpialidocious`,
+    (myString) => {
+        return {
+            originalString: myString,
+            modifiedString: myString.split('a').join('A'),
+            numberReplaced: (myString.match(/a/g) || []).length,
+            "length": myString.length
+        }
+    }
+);
+//testing second expression output
+console.table(secondExpression)
+
+module.exports = {decoFunction}
