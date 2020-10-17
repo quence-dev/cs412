@@ -1,16 +1,21 @@
+/*
+* PS3 - Express Node GET and POST
+* Spencer Vilicic
+* CS412
+* 10/17/2020
+*/
 const express = require('express');
 const router = express.Router();
 
-/* GET home page. */
-router.get('/ps3', function(req, res, next) {
-    res.render('ps3', {title: "PS3", "name":"Spencer" });
-
+router.get('/',(req, res, next) => {
+    console.log(`Got ${req.query.name} and ${req.query.age} on ${req.url} with (${req.method})`)
+    res.render('ps3', {'name': req.query.name, 'age': req.query.age})
 });
 
-router.post('/ps3',
-    function (req, res, next) {
-        res.render(`ps3`, {title: "PS3", "name":"Spencer" });
-
+router.post('/',(req, res, next) => {
+    console.log(`Got ${req.body.name} and ${req.body.age} on ${req.url} with (${req.method})`)
+    res.render('ps3', {'name': req.body.name, 'age': req.body.age,
+        'length':req.body.name.length, 'isPost': true})
 });
 
 module.exports = router;
