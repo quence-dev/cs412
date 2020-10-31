@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    h1= title
+    if isNotEmpty
+        p Welcome to #{city}. It is currently #{temp_f} degrees out.
+    form(method='POST' action='http://localhost:3000/ps4/')
+        input(type='text', name='city', placeholder='City')
+        button(type='submit', name='submit') Enter
+
+
+
