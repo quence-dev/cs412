@@ -1,3 +1,33 @@
-
 <h2>What's the Weather?!</h2>
+
+<h3>Choose a city:</h3>
+
+<div>
+  <ul *ngFor="let city of cities">
+    <button (click)="setSelectedCity(city)">{{city.name}}</button>
+  </ul>
+</div>
+
+<!--when this is connected to the API it will be easier to actually
+ capture the input from this input box-->
+<div>
+  <input type="text" name="citysearch" placeholder="City" [ngModel]="selectedCity.name">
+</div>
+
+<!--just showing the different ways it can be done-->
+
+<div>
+  <br>
+  Current weather in {{selectedCity.name}}, {{selectedCity.country}}
+  <p *ngIf="selectedCity.tempF">Temperature: {{selectedCity.tempF}}</p>
+</div>
+
+<div *ngIf="selectedCity.condition">
+  Condition: {{selectedCity.condition}}
+</div>
+
+<div *ngIf="selectedCity.windMPH">
+  <br>
+  Wind (mph): <input [ngModel]="selectedCity.windMPH">
+</div>
 
