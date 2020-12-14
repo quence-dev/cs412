@@ -1,0 +1,10 @@
+<p>Enter any city to find its current weather.</p>
+
+<div>
+  <form>
+    <input type="text" id="city" name="city" placeholder="Search City or ZIP Code" [(ngModel)]="city">
+    <button type="submit" (ngSubmit)="getWeather()">Today</button>
+    <button type="submit" (ngSubmit)="getHourlyWeather()">Hourly</button>
+    <button type="submit" (ngSubmit)="get10Day()">10 Day</button>
+  </form>
+</div>
