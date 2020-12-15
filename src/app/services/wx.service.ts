@@ -10,8 +10,15 @@ export class WxService {
 
   constructor(private http: HttpClient) { }
 
-  getWeather(city: string): Observable<any> {
-    return this.http.get(wxConfig.url + wxConfig.api_forecast + 'key=' + wxConfig.key + '&q=' + city,
-      {observe: 'body', responseType: 'json'});
+  getWeather(c: string): Observable<any> {
+    return this.http.post<any>(wxConfig.url, {city: c}, {observe: 'body', responseType: 'json'});
+  }
+
+  get10Day(c: string): Observable<any> {
+    return this.http.post<any>(wxConfig.extendedURL, {city: c}, {observe: 'body', responseType: 'json'});
+  }
+
+  getHourlyWeather(c: string): Observable<any> {
+    return this.http.post<any>(wxConfig.hourlyURL, {city: c}, {observe: 'body', responseType: 'json'});
   }
 }

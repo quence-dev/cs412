@@ -28,17 +28,16 @@ retrieved from cache on the backend, or from a third-party API call.
 })
 export class AppComponent {
   title = 'cs412';
-  cities: City[] = cities;
-  city: City;
-  selectedCity: City;
-  search: City;
+  // cities: City[] = cities;
+  // city: City;
+  // selectedCity: City;
+  // search: City;
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
-  setSelectedCity(city: City): void {
-    this.selectedCity = city;
-    console.log(`${city.name}`);
-  }
+  // setSelectedCity(city: City): void {
+  //   this.selectedCity = city;
+  //   console.log(`${city.name}`);
+  // }
 }

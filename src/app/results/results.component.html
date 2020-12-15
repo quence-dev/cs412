@@ -1,1 +1,30 @@
-<p>results works!</p>
+<div> Results is connected. </div>
+
+<!--current weather-->
+<div *ngIf="today">
+  Div 1 works!
+  Current weather in {{weather.location.name}}, {{weather.location.country}}
+  <p *ngIf="weather.current.temp_f">Temperature: {{weather.current.temp_f}}</p>
+  <p *ngIf="weather.current.condition.text">Condition: {{weather.current.condition.text}}</p>
+<!--  Temperature: {{weather.current.temp_f}}-->
+<!--  Condition: {{weather.current.condition.text}}-->
+</div>
+
+<!--hourly weather-->
+<div *ngIf="hourly">
+  Div 2 works!
+  <ul *ngFor="let hour of hours">
+    <li>{{hour.time}} {{hour.temp_f}} {{hour.condition.text}}</li>
+  </ul>
+</div>
+
+<!--10 day forecast-->
+<div *ngIf="extended">
+  Div 3 works!
+  <ul *ngFor="let day of days">
+    <li>Date: {{day.date}}
+        High: {{day.day.maxtemp_f}}
+        Low: {{day.day.mintemp_f}}
+        Condition: {{day.day.condition.text}}</li>
+  </ul>
+</div>
