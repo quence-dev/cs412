@@ -13,13 +13,25 @@ export class FormComponent implements OnInit {
   hourly: boolean;
   extended: boolean;
   cached: boolean;
-  // selectedCity: City;
   weather: any;
   hours: any;
   days: any;
+  selectedOption: any = 'today';
   constructor(private wxService: WxService) { }
 
   ngOnInit(): void { }
+
+  sendRequest(): void {
+    if (this.selectedOption === 'today') {
+      this.getWeather();
+    }
+    if (this.selectedOption === 'hourly') {
+      this.getHourlyWeather();
+    }
+    if (this.selectedOption === 'extended') {
+      this.get10Day();
+    }
+  }
 
   getWeather(): void {
     console.log(`getWeather called.`);
@@ -31,10 +43,6 @@ export class FormComponent implements OnInit {
         console.log(`Response: ${response}`);
         this.weather = response.weather;
         this.cached = response.cached;
-        // this.selectedCity.name = response.weather.location.name;
-        // this.selectedCity.country = response.weather.location.country;
-        // this.selectedCity.condition = response.weather.current.condition.text;
-        // this.selectedCity.tempF = response.weather.current.temp_f;
       }
     );
   }
@@ -50,10 +58,6 @@ export class FormComponent implements OnInit {
         this.weather = response.weather;
         this.cached = response.cached;
         this.hours = response.weather.forecast.forecastday[0].hour;
-        // this.selectedCity.name = response.weather.location.name;
-        // this.selectedCity.country = response.weather.location.country;
-        // this.selectedCity.condition = response.weather.current.condition.text;
-        // this.selectedCity.tempF = response.weather.current.temp_f;
       }
     );
   }
@@ -69,11 +73,12 @@ export class FormComponent implements OnInit {
         this.weather = response.weather;
         this.cached = response.cached;
         this.days = response.weather.forecast.forecastday;
-        // this.selectedCity.name = response.location.name;
-        // this.selectedCity.country = response.location.country;
-        // this.selectedCity.condition = response.current.condition.text;
-        // this.selectedCity.tempF = response.current.temp_f;
       }
     );
+  }
+
+  radioChanged(event: any): void {
+    this.selectedOption = event.target.value;
+    console.log(this.selectedOption);
   }
 }

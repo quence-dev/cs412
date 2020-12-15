@@ -1,11 +1,15 @@
 <p>Enter any city to find its current weather.</p>
 
-<div>
-  <form>
+<div name="searchDiv">
+  <form name="searchForm" (ngSubmit)="sendRequest()">
     <input type="text" id="city" name="city" placeholder="Search City or ZIP Code" [(ngModel)]="city">
-    <button type="submit" (ngSubmit)="getWeather()">Today</button>
-    <button type="submit" (ngSubmit)="getHourlyWeather()">Hourly</button>
-    <button type="submit" (ngSubmit)="get10Day()">10 Day</button>
+    <button type="submit">Submit</button><br>
+    <input type="radio" id="today" name="timescale" value="today" checked (change)="radioChanged($event)">
+    <label for="today">Today</label>
+    <input type="radio" id="hourly" name="timescale" value="hourly" (change)="radioChanged($event)">
+    <label for="hourly">Hourly</label>
+    <input type="radio" id="extended" name="timescale" value="extended" (change)="radioChanged($event)">
+    <label for="extended">10 Day</label>
   </form>
 </div>
 

@@ -1,30 +1,30 @@
-<div> Results is connected. </div>
+<p> Results is connected. </p>
 
 <!--current weather-->
 <div *ngIf="today">
-  Div 1 works!
   Current weather in {{weather.location.name}}, {{weather.location.country}}
   <p *ngIf="weather.current.temp_f">Temperature: {{weather.current.temp_f}}</p>
   <p *ngIf="weather.current.condition.text">Condition: {{weather.current.condition.text}}</p>
-<!--  Temperature: {{weather.current.temp_f}}-->
-<!--  Condition: {{weather.current.condition.text}}-->
+  Cached: {{cached}}
 </div>
 
 <!--hourly weather-->
 <div *ngIf="hourly">
-  Div 2 works!
   <ul *ngFor="let hour of hours">
-    <li>{{hour.time}} {{hour.temp_f}} {{hour.condition.text}}</li>
+    <li> <p *ngIf="hour.time"> Time: {{hour.time}}</p>
+      <p *ngIf="hour.temp_f"> Temperature: {{hour.temp_f}}</p>
+      <p *ngIf="hour.condition.text">Condition: {{hour.condition.text}}</p></li>
   </ul>
+  Cached: {{cached}}
 </div>
 
 <!--10 day forecast-->
 <div *ngIf="extended">
-  Div 3 works!
   <ul *ngFor="let day of days">
-    <li>Date: {{day.date}}
-        High: {{day.day.maxtemp_f}}
-        Low: {{day.day.mintemp_f}}
-        Condition: {{day.day.condition.text}}</li>
+    <li><p *ngIf="day.date">Date: {{day.date}}</p>
+      <p *ngIf="day.day.maxtemp_f">High: {{day.day.maxtemp_f}}</p>
+      <p *ngIf="day.day.mintemp_f">Low: {{day.day.mintemp_f}}</p>
+      <p *ngIf="day.day.condition.text"> Condition: {{day.day.condition.text}}</p></li>
   </ul>
+  Cached: {{cached}}
 </div>

@@ -1,6 +1,9 @@
+/*
+  Spencer Vilicic
+  CS412 - 12/15/20
+  Full Stack API Test
+ */
 import { Component } from '@angular/core';
-import {City} from './data/City';
-import { cities } from './data/weatherMOCK';
 
 /*
 Use a validated form [require the input term and validate it is longer than 1
@@ -28,16 +31,7 @@ retrieved from cache on the backend, or from a third-party API call.
 })
 export class AppComponent {
   title = 'cs412';
-  // cities: City[] = cities;
-  // city: City;
-  // selectedCity: City;
-  // search: City;
   constructor() { }
 
   ngOnInit(): void { }
-
-  // setSelectedCity(city: City): void {
-  //   this.selectedCity = city;
-  //   console.log(`${city.name}`);
-  // }
 }

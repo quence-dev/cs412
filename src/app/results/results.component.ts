@@ -7,7 +7,6 @@ import {City, Hour, Day} from '../data/City';
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnInit {
-  // @Input() selectedCity: City;
   @Input() today: boolean;
   @Input() hourly: boolean;
   @Input() extended: boolean;
@@ -15,16 +14,7 @@ export class ResultsComponent implements OnInit {
   @Input() hours: any;
   @Input() days: any;
   @Input() cached: boolean;
-  name: string;
-  country: string;
-  tempF: number;
-  condition: string;
-  constructor() {
-    this.name = '';
-    this.country = '';
-    this.tempF = 0;
-    this.condition = '';
-  }
+  constructor() { }
 
   ngOnInit(): void {
   }
